@@ -7,13 +7,18 @@ public class Lvl {
         LEGENDARY
     }
 
-    public static int calcExpDiffBetweenLvlsByRarity(int fromLevel, int toLevel, Rarity rarity) {
+    public static int calcExpDiffBetweenLvlsByRarity(int fromLevel, int currentXP, int toLevel, Rarity rarity) {
         int total = 0;
 
         for (int i = fromLevel - 1; i <= toLevel - 1; i++) {
             total += combined[rarity.ordinal()][i];
         }
-        return total;
+        if (currentXP > combined[rarity.ordinal()][fromLevel - 1]) {
+            System.out.println("\u001b[31mError: Out of Bounds Level XP.");
+            System.out.println("\u001b[31mYou Have Entered an XP Amount Above your Current Level's Max!");
+            return -1;
+        }
+        return total - currentXP;
     }
 
 
