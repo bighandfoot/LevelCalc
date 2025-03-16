@@ -96,13 +96,6 @@ public class Lvl {
              1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700,
              1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700
      };
-
      private static int[][] combined = {COMMON, UNCOMMON, RARE, EPIC, LEGENDARY};
-
-     public static void printLengths() {
-         for (Rarity r : Lvl.Rarity.values()) {
-             System.out.println(r.toString() + ": " + combined[r.ordinal()].length);
-         }
-     }
 }
 
