@@ -8,11 +8,13 @@ public class MainLVL {
         DecimalFormat f = new DecimalFormat("##,###,###");
         System.out.println("Enter Starting Level: ");
         int fromLevel = reader.nextInt();
+        System.out.println("Enter Current XP: ");
+        int currentXP = reader.nextInt();
         System.out.println("Enter Last Level: ");
         int toLevel = reader.nextInt();
 
         if (toLevel > 100) {
-            System.out.println("Golden Dragon XP: " + f.format(Lvl.calcExpDiffBetweenLvlsByRarity(fromLevel, toLevel, Lvl.Rarity.values()[4])));
+            System.out.println("Golden Dragon XP: " + f.format(Lvl.calcExpDiffBetweenLvlsByRarity(fromLevel, currentXP, toLevel, Lvl.Rarity.values()[4])));
         } else {
 
             System.out.println("Enter Rarity: ");
@@ -20,8 +22,8 @@ public class MainLVL {
                 System.out.println(i + ": " + Lvl.Rarity.values()[i].toString());
             }
             int rarity = reader.nextInt();
-
-            System.out.println(f.format(Lvl.calcExpDiffBetweenLvlsByRarity(fromLevel, toLevel, Lvl.Rarity.values()[rarity])));
+            
+            System.out.println(f.format(Lvl.calcExpDiffBetweenLvlsByRarity(fromLevel, currentXP, toLevel, Lvl.Rarity.values()[rarity])));
         }
     }
 }
