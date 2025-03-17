@@ -34,7 +34,8 @@ public class MainLVL {
             int toLevel = reader.nextInt();
             if (!(toLevel > fromLevel && toLevel <= 200))
                 throw new Exception("Last level out of bounds");
-            System.out.println(f.format(Lvl.calcExpDiffBetweenLvlsByRarity(fromLevel, currentXP, toLevel, Lvl.Rarity.values()[rarity])));
+            System.out.println("\u001b[36mXP Required: " + f.format(Lvl.calcExpDiffBetweenLvlsByRarity(fromLevel, currentXP, toLevel, Lvl.Rarity.values()[rarity])));
+            System.out.println( "\u001b[36mUltimate Carrot Candies Required: " + (Lvl.calcExpDiffBetweenLvlsByRarity(fromLevel, currentXP, toLevel, Lvl.Rarity.values()[rarity]) / 1500000 + 1));
         } catch (Exception e) {
             System.out.println("\u001b[31mError: " + e.getMessage() + ", try again");
         }
