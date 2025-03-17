@@ -37,7 +37,8 @@ public class MainLVL {
                     System.out.println(i + ": " + Lvl.Rarity.values()[i].toString());
                 }
                 int rarity = reader.nextInt();
-
+                if (rarity < 0 || rarity > 4)
+                    throw new Exception();
                 System.out.println(f.format(Lvl.calcExpDiffBetweenLvlsByRarity(fromLevel, currentXP, toLevel, Lvl.Rarity.values()[rarity])));
             }
         } catch (Exception e) {
