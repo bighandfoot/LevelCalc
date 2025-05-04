@@ -10,7 +10,7 @@ public class Lvl {
     public static int calcExpDiffBetweenLvlsByRarity(int fromLevel, int currentXP, int toLevel, Rarity rarity)  {
         int total = 0;
 
-        for (int i = fromLevel - 1; i <= toLevel - 1; i++) {
+        for (int i = fromLevel; i <= toLevel - 1; i++) {
             total += combined[rarity.ordinal()][i];
         }
         if (fromLevel > toLevel) {
