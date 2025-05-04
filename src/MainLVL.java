@@ -96,8 +96,8 @@ public class MainLVL {
                 DecimalFormat format = new DecimalFormat("#,###.#");
                 System.out.println("\u001b[36mXP Required: " + f.format(Lvl.calcExpDiffBetweenLvlsByRarity(fromLevel, currentXP, toLevel, Lvl.Rarity.values()[rarity])));
                 System.out.println("\u001b[36mUltimate Carrot Candies Required: " + req);
-                System.out.println("\u001b[36mCandy Buy Price: " + format.format(buyPrice * (double) req));
-                System.out.println("\u001b[36mCandy Sell Price: " + format.format(sellPrice * (double) req));
+                System.out.println("\u001b[36mUltimate Carrot Candy Buy Price: " + format.format(buyPrice * (double) req));
+                System.out.println("\u001b[36mUltimate Carrot Candy Sell Price: " + format.format(sellPrice * (double) req));
             } catch (Exception e) {
                 System.out.println("\u001b[31mError: " + e.getMessage() + ", try again");
             }
