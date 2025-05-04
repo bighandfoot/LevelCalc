@@ -94,16 +94,17 @@ public class MainLVL {
                     throw new Exception("Last level out of bounds");
                 int req = Lvl.calcExpDiffBetweenLvlsByRarity(fromLevel, currentXP, toLevel, Lvl.Rarity.values()[rarity]) / 1500000;
                 int cadu = Lvl.calcExpDiffBetweenLvlsByRarity(fromLevel, currentXP, toLevel, Lvl.Rarity.values()[rarity]) / 1650000;
+                double reqXP = Lvl.calcExpDiffBetweenLvlsByRarity(fromLevel, currentXP, toLevel, Lvl.Rarity.values()[rarity]);
                 DecimalFormat format = new DecimalFormat("#,###.#");
-                System.out.println("\u001b[36mXP Required: " + f.format(Lvl.calcExpDiffBetweenLvlsByRarity(fromLevel, currentXP, toLevel, Lvl.Rarity.values()[rarity])));
-                if ((double)req / req > 0)
-                    req += 1;
-                if ((double)cadu / cadu > 0)
+                System.out.println("\u001b[36mXP Required: " + f.format(reqXP));
+                if (!(reqXP % 1500000 == 0.0))
+                    req = req + 1;
+                if (!(reqXP % 1650000 == 0.0))
                     cadu += 1;
                 System.out.println("\u001b[36mCaducous Feeder Uses: " + cadu);
                 System.out.println("\u001b[36mUltimate Carrot Candies Required: " + req);
-                System.out.println("\u001b[36mUltimate Carrot Candy Buy Price: " + format.format(buyPrice * (double) req));
-                System.out.println("\u001b[36mUltimate Carrot Candy Sell Price: " + format.format(sellPrice * (double) req));
+                System.out.println("\u001b[36mTotal Money Required (Buy Price): " + format.format(buyPrice * (double) req));
+                System.out.println("\u001b[36mTotal Money Required (Sell Price): " + format.format(sellPrice * (double) req));
             } catch (Exception e) {
                 System.out.println("\u001b[31mError: " + e.getMessage() + ", try again");
             }
