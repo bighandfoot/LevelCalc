@@ -92,10 +92,12 @@ public class MainLVL {
                 int toLevel = reader.nextInt();
                 if (!(toLevel > fromLevel && toLevel <= 200))
                     throw new Exception("Last level out of bounds");
+                int req = (Lvl.calcExpDiffBetweenLvlsByRarity(fromLevel, currentXP, toLevel, Lvl.Rarity.values()[rarity]) / 1500000 + 1);
+                DecimalFormat format = new DecimalFormat("#,###.#");
                 System.out.println("\u001b[36mXP Required: " + f.format(Lvl.calcExpDiffBetweenLvlsByRarity(fromLevel, currentXP, toLevel, Lvl.Rarity.values()[rarity])));
-                System.out.println("\u001b[36mUltimate Carrot Candies Required: " + (Lvl.calcExpDiffBetweenLvlsByRarity(fromLevel, currentXP, toLevel, Lvl.Rarity.values()[rarity]) / 1500000 + 1));
-                System.out.println("\u001b[36mCandy Buy Price: " + buyPrice);
-                System.out.println("\u001b[36mCandy Sell Price: " + sellPrice);
+                System.out.println("\u001b[36mUltimate Carrot Candies Required: " + req);
+                System.out.println("\u001b[36mCandy Buy Price: " + format.format(buyPrice * (double) req));
+                System.out.println("\u001b[36mCandy Sell Price: " + format.format(sellPrice * (double) req));
             } catch (Exception e) {
                 System.out.println("\u001b[31mError: " + e.getMessage() + ", try again");
             }
